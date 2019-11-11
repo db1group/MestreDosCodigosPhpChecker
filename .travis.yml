@@ -1,6 +1,7 @@
 language: php
 
 install: echo 0;
+script: echo 0;
 
 git:
   quiet: false
