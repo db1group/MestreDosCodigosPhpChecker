@@ -1,0 +1,19 @@
+{
+    "name": "byivo/test-folder",
+    "authors": [
+        {
+            "name": "Ivo",
+            "email": "irbatistela@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    }
+}

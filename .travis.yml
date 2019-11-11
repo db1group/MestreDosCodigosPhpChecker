@@ -1,6 +1,7 @@
 language: php
 
-install: echo 0;
+install: cd test-folder && composer install
+before_script: pwd && phpunit
 script: echo 0;
 
 git:
