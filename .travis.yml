@@ -1,8 +1,0 @@
-language: php
-
-install: cd test-folder && composer install
-before_script: pwd && phpunit
-script: echo 0;
-
-git:
-  quiet: false
