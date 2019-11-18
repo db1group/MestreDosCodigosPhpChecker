@@ -1,9 +1,9 @@
 FROM composer
 
 COPY docker-build/run-config/ /opt/exercises-checker
-WORKDIR /opt/tests
+WORKDIR /opt/exercises-checker
 RUN composer install
 
-COPY test /opt/tests/test
+COPY test /opt/exercises-checker/test
 
 ENTRYPOINT ./vendor/bin/phpunit
