@@ -5,7 +5,7 @@ namespace Test;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-class FooBarTest extends TestCase {
+class FizzBuzzTest extends TestCase {
 
 	public function getNumbersMultipleOf3(): array {
 		return [
@@ -22,9 +22,9 @@ class FooBarTest extends TestCase {
 	 * @test
 	 * @dataProvider getNumbersMultipleOf3
 	 */
-	public function givenANumberMultipleOf3_ShouldPrintFoo(string $numberMultipleOf3): void {
+	public function givenANumberMultipleOf3_ShouldPrintFizz(string $numberMultipleOf3): void {
 		$returnValue = $this->runExerciseWithParameter($numberMultipleOf3);
-		Assert::assertEquals('Foo', $returnValue);
+		Assert::assertEquals('Fizz', $returnValue);
 	}
 
 	public function getNumbersMultipleOf5(): array {
@@ -42,9 +42,9 @@ class FooBarTest extends TestCase {
 	 * @test
 	 * @dataProvider getNumbersMultipleOf5
 	 */
-	public function givenANumberMultipleOf5_ShouldPrintBar(string $numberMultipleOf5): void {
+	public function givenANumberMultipleOf5_ShouldPrintBuzz(string $numberMultipleOf5): void {
 		$returnValue = $this->runExerciseWithParameter($numberMultipleOf5);
-		Assert::assertEquals('Bar', $returnValue);
+		Assert::assertEquals('Buzz', $returnValue);
 	}
 
 	public function getNumbersMultipleOf3And5(): array {
@@ -62,9 +62,9 @@ class FooBarTest extends TestCase {
 	 * @test
 	 * @dataProvider getNumbersMultipleOf3And5
 	 */
-	public function givenANumberMultipleOf3And5_ShouldPrintFooBar(string $numberMultipleOf3And5): void {
+	public function givenANumberMultipleOf3And5_ShouldPrintFizzBuzz(string $numberMultipleOf3And5): void {
 		$returnValue = $this->runExerciseWithParameter($numberMultipleOf3And5);
-		Assert::assertEquals('FooBar', $returnValue);
+		Assert::assertEquals('FizzBuzz', $returnValue);
 	}
 
 	public function getNumbersNotMultipleOf3Nor5(): array {
@@ -88,6 +88,6 @@ class FooBarTest extends TestCase {
 	}
 
 	private function runExerciseWithParameter(string $parameter): string {
-	    return exec('php -f /opt/project/index.php ' . $parameter);
+	    return exec('php -f /opt/project/public/index.php ' . $parameter);
 	}
 }
