@@ -8,10 +8,8 @@ else
   EXERCISE_ID=$1
 fi
 
-
-SOURCE_CODE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 docker build \
 -t byivo/mdc-php-checker:$EXERCISE_ID \
 --build-arg EXERCISE=$EXERCISE_ID \
--f $SOURCE_CODE_DIR/Dockerfile \
+-f docker-build/Dockerfile \
 .

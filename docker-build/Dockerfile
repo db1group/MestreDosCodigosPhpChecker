@@ -1,6 +1,6 @@
 FROM composer
 
-COPY run-config/ /opt/exercises-checker
+COPY docker-build/run-config/ /opt/exercises-checker
 WORKDIR /opt/exercises-checker
 RUN composer install
 
