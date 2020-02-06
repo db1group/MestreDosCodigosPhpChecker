@@ -27,8 +27,6 @@ class FibonacciTest extends TestCase
     /**
      * @test
      * @dataProvider getNumbersOneOfTenWithExpectedFibonacciNumbers
-     * @param string $sequenceNumber
-     * @param string $fibonacciNumber
      */
     public function givenFirstTenNumbersOfTheFibonacciSequence_ShouldAssertReturnedNumbers(
         string $sequenceNumber,
@@ -53,27 +51,25 @@ class FibonacciTest extends TestCase
     /**
      * @test
      * @dataProvider getLargeNumbersWithExpectedFibonacciNumbers
-     * @param string $inputNumber
-     * @param string $fibonacciNumber
      */
-    public function givenLargeNumber_ShouldCalculateTheFibonacciNumber(
+    public function givenLargeNumber_ShouldCalculateTheFibonacciNumberInLowExecutionTime(
         string $inputNumber,
         string $fibonacciNumber
     ): void
     {
-        $errorMessageAssertNumbers = 'Error when calculating a large number of the Fibonacci sequence';
-        $errorMessageTimeOut = 'Error time out';
-
         $testStartDate = new DateTime('now');
-        $secondInitialTest = $testStartDate->format('ms');
+        $secondInitialTest = $testStartDate->getTimestamp();
 
         $returnValue = $this->runExerciseWithParameter($inputNumber);
 
         $testEndTime = new DateTime('now');
-        $secondEndTest = $testEndTime->format('ms');
+        $secondEndTest = $testEndTime->getTimestamp();
 
+        $errorMessageAssertNumbers = 'Error when calculating a large number of the Fibonacci sequence';
+        $errorMessageTimeOut = 'Error time out';
         Assert::assertEquals($fibonacciNumber, $returnValue, $errorMessageAssertNumbers);
-        Assert::assertEqualsWithDelta($secondInitialTest, $secondEndTest, 1, $errorMessageTimeOut);
+        $expectedRunTimeInSeconds = 10;
+        Assert::assertEqualsWithDelta($secondInitialTest, $secondEndTest, $expectedRunTimeInSeconds, $errorMessageTimeOut);
     }
 
     private function runExerciseWithParameter(string $parameter): string
