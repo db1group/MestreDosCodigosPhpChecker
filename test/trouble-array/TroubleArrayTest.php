@@ -12,7 +12,7 @@ class TroubleArrayTest extends TestCase {
 	/** @test */
 	public function givenThePrintedResponse_shouldBeTheCorrectAnswerToCurrentExercise(): void {
 		$answer = explode(' ', $this->getAnswer());
-		$expectedAnswer = ['D'];
+		$expectedAnswer = ['A'];
 
 		$hadACorrectAnswer = array_diff($answer, $expectedAnswer) === array_diff($expectedAnswer, $answer);
 
@@ -21,9 +21,10 @@ class TroubleArrayTest extends TestCase {
 
 	public function getAlternativesThatShouldNotBeAnswered(): array {
 		return [
-			'A' => ['A'],
 			'B' => ['B'],
 			'C' => ['C'],
+			'D' => ['D'],
+			'E' => ['E'],
 		];
 	}
 
